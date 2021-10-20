@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Testimonial Block Template.
+ * Home page 'Dental Care Needs' slider: https://summitdentalohio.eks.wrlweb.com/
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -27,30 +27,10 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 $content = get_field('content') ?: 'Services Slider: Content';
 $button = get_field('button') ?: 'Services Slider: Button';
-// $content_2 = get_field('content_2') ?: 'Content';
-// $button_name = get_field('button_name') ?: 'Button Name';
-// $button_link = get_field('button_link') ?: 'Button Link';
-//$image = get_field('image') ?: 295;
-
 ?>
-
-<?php
-
-        	
-			// WP_Query arguments
-			$args = array(
-				'post_type'              => array( 'Services' ),
-				'posts_per_page'         => '24',
-				'orderby'                => 'date',
-				'order'					 => 'DESC'
-			);
-
-
-	$the_query = new WP_Query($args);
-?>
-
 
 <div class="services-container <?php echo esc_attr($className); ?>">
+
 <div class="services-container">
 
 <div class="services-two-column-block">
@@ -74,12 +54,6 @@ $button = get_field('button') ?: 'Services Slider: Button';
 </div>
 </div>
 
-
-
-
-
-
-
 <script>
 jQuery(document).ready(function() {
     dataArr = [];
@@ -95,13 +69,7 @@ jQuery(document).ready(function() {
           },
           dataType: 'json',
           success: function(data) {
-//            let tabs_main = '<ul class="tabs-nav">'
-
-let featuredContent = '';
-
-
-
-
+            let featuredContent = '';
 
             for (i = 0; i < data.length; i++) {
             let title = data[i].title.rendered;
@@ -129,7 +97,7 @@ let carouselHTML = `
 
 for (i = 0; i < dataArr.length; i++) {
     //carouselHTML+='<p>test</p>'
-carouselHTML += `
+        carouselHTML += `
             <div class="owl-item owl-services-img-wrapper">
                 <div class="owl-services-img" style="background-image:url('`+dataArr[i].thumbnail+`')" onclick="window.open('`+dataArr[i].link+`', '_self')"></div>
                 <div class="featured-items-text">
@@ -141,7 +109,7 @@ carouselHTML += `
                         <p>`+dataArr[i].services_content+`</p>
                     </div>
                 </div>
-            </div>`;
+        </div>`;
 }
 carouselHTML+='</div></div></div>'
 //console.log(carouselHTML)
