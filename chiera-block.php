@@ -20,7 +20,7 @@ if ( !defined( 'FP_PLUGIN_URI' ) ) {
     define( 'FP_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 }
 
-// acf blocks test
+// acf blocks
 add_action('acf/init', 'home_gallery_block');
 function home_gallery_block() {
 
